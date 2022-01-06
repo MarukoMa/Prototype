@@ -1,20 +1,19 @@
 {
-  "name": "promise-self",
+  "name": "prototype",
   "version": "1.0.0",
-  "description": "promise",
+  "description": "prototype",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "respository": "https://github.com/MarukoMa/promise",
+  "respository": "https://github.com/MarukoMa/__proto__",
   "keywords": [
-    "promise",
-    "resolved",
-    "rejected",
-    "then",
-    "catch"
+    "es3",
+    "es5",
+    "es6"
   ],
   "author": "MarukoMa",
   "license": "ISC",
   "dependencies": {
+    "require.js": "^1.0.0"
   }
 }
