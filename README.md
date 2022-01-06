@@ -1,40 +1,38 @@
-# ajax
-笔者手动封装ajax请求，主要功能包含  
-* 支持 method（get/post/delete/put)
-*  支持设置delay（延迟请求时间）、abort（取消请求）、timeout（超时的取消请求）
-*支持jsonp请求方式
+# __proto__
+分别使用es3、es5、es6方式实现 People、Student、Doctor三个类，并且后者需要继承前者
+## explain
 
-## options
+* es3  
+* 创建一个不需要形参的函数ClassMiddle作为Child和Father之间的中间桥梁。
 
-* type  可设置get post put delete四种类型,默认为get方式  
-* url   请求地址 
-* data  页发送到服务器的数据,get请求中将附加在 URL后。
-* dataType 设置数据交换格式,默认值为json
-* async 请求均为异步请求,默认为true
-* timeout  设置超时的取消请求,默认为ms,初始值为0
-* jsonpCallback 为jsonp请求指定一个回调函数名.默认为随机生成的
-* delay 设置延迟请求时间,,默认为ms,初始值为0
-* success 成功回调函数
-* error 失败回调函数
-### Example
-```javascript
-  ajax({
-      type:"POST",
-      url:"http://localhost:3000/users",
-      data:{name:'小新',idNumber:"321*****11108"},
-      async:true,
-      dataType: "json",
-      timeout:0,
-      delay:30,
-      success:function(data){
-        console.log(JSON.stringify(data))
-      },
-      error:function(data){
-         console.log('err !')
-      }
-  })
+* es5  
+* Object.create()方法实现继承,
+* Object.keys()方法继承父类的静态属性和方法
 
-```
-### tips:  两种形式封装,调用传参方式相同,可选其一
-* ajax.js 为普通函数式封装
-* modelAjax.js 使用构造函数封装
+* es6  
+* Object.setPrototypeOf()
+
+
+## other
+### 原型链
+* 使用构造函数来新建一个对象的(new)
+* 对象的内部将包含一个指针,这个指针指向构造函数的 prototype 属性对应的值，这个指针称为对象的原型。
+* 每一个构造函数的内部都有一个 prototype 属性，指向另一个对象
+* 对象包含了可以由该构造函数的所有实例共享的属性和方法
+* 访问一个对象的属性时，如果这个对象内部不存在这个属性，那么它就会去它的原型对象里找这个属性，这个原型对象又会有自己的原型，于是就这样一直找下去，也就是原型链的概念。原型链的尽头一般来说都是 Object.prototype
+
+
+### 原型链的特点：
+* 原型链实现了继承。
+* 利用原型让一个引用类型继承另一个引用类型的属性和方法
+* JavaScript 对象是通过引用来传递的，
+* 我们创建的每个新对象实体中并没有一份属于自己的原型副本。
+* 当我们修改原型时，与之相关的对象也会继承这一改变。
+
+* 优点
+  非常纯粹的继承关系，实例是子类的实例，也是父类的实例。子类可以访问父类新的原型方法和属性。
+
+* 缺点
+  替换原型后需要重写方法。不能用对象字面量创建原型方法。
+ 
+
