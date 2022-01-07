@@ -26,7 +26,7 @@
 // }
 
 // function Doctor(name, grade, paperNumber) {
-//   Student.apply(this,[name, grade])
+//   Student.apply(this,arguments)
 //   this.paperNumber = paperNumber
 // }
 // extendsClass(Doctor, Student)
